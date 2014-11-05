@@ -9,12 +9,13 @@ from IPython.utils.traitlets import Bool, Float, Int, Unicode, HasTraits, Instan
 
 
 class Element(HasTraits):
-    pass
+    _tag = ''
+
 
 
 class SVG(Element):
-    width = Int(100)
-    height = Int(100)
+    width = Int(100, attr=True)
+    height = Int(100, attr=True)
     children = List([])
     
     _template = u'<svg width="{width}" height="{height}">\n{children}\n</svg>'
@@ -37,17 +38,18 @@ class SVG(Element):
         
 
 class Shape(Element):
-    fill = Unicode('black')
-    stroke = Unicode('red')
+    fill = Unicode('black', attr=True)
+    stroke = Unicode('red', attr=True)
     stroke_width = Int(1)
 
 
 class Circle(Shape):
     
+    _tag = 'circle'
     parent = Instance(Element)
-    cx = Int(0)
-    cy = Int(0)
-    r = Int(10)
+    cx = Int(0, attr=True)
+    cy = Int(0, attr=True)
+    r = Int(10, attr=True)
     
     _template = u"""<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" 
         stroke="{stroke}" stroke-width="{stroke_width}"/>"""
