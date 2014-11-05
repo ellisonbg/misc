@@ -2,6 +2,7 @@
 """SVG Display and Widgets."""
 
 from __future__ import absolute_import
+from __future__ import print_function
 
 from IPython.display import display, HTML
 from IPython.utils.traitlets import Bool, Float, Int, Unicode, HasTraits, Instance, List
@@ -23,7 +24,9 @@ class SVG(Element):
         for c in self.children:
             cr.append(c._render_template())
         cr = u'\n'.join(cr)
+        print(cr)
         data = {'children': cr, 'width': self.width, 'height': self.height}
+        print(data)
         return self._template.format(**data)
     
     def circle(self, **kwargs):
