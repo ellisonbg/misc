@@ -17,16 +17,14 @@ class SVG(Element):
     height = Int(100)
     children = List([])
     
-    _template = u'<svg width="{width}" height="{height}">\n{children}</svg>'
+    _template = u'<svg width="{width}" height="{height}">\n{children}\n</svg>'
     
     def _render_template(self):
         cr = []
         for c in self.children:
             cr.append(c._render_template())
         cr = u'\n'.join(cr)
-        print(cr)
         data = {'children': cr, 'width': self.width, 'height': self.height}
-        print(data)
         return self._template.format(**data)
     
     def circle(self, **kwargs):
@@ -49,7 +47,7 @@ class Circle(Shape):
     cy = Int(0)
     r = Int(10)
     
-    _template = u'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}"'
+    _template = u'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" />'
     
     def _render_template(self):
         data = {}
