@@ -23,6 +23,7 @@ To turn off autoscaling of arrays:
     vizarray.set_scale(False)
 """
 
+from __future__ import absolute_import
 import ipythonblocks as ipb
 from ipythonblocks import BlockGrid
 import numpy as np
