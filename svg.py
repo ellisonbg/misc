@@ -38,6 +38,8 @@ class SVG(Element):
 
 class Shape(Element):
     fill = Unicode('black')
+    stroke = Unicode('red')
+    stroke_width = Int(1)
 
 
 class Circle(Shape):
@@ -47,7 +49,8 @@ class Circle(Shape):
     cy = Int(0)
     r = Int(10)
     
-    _template = u'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" />'
+    _template = u"""<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" 
+        stroke="{stroke}" stroke-width="{stroke_width}"/>"""
     
     def _render_template(self):
         data = {}
