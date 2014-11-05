@@ -3,7 +3,7 @@
 
 from __future__ import absolute_import
 
-from IPython.display import display, HTML, SVG
+from IPython.display import display, HTML
 from IPython.utils.traitlets import Bool, Float, Int, Unicode, HasTraits, Instance, List
 
 
@@ -20,13 +20,13 @@ class SVG(Element):
     
     def _render_template(self):
         cr = []
-        for c in children:
+        for c in self.children:
             cr.append(c._render_template())
         cr = u'\n'.join(cr)
-        data = {'children': cr, 'width': width, 'height': height}
+        data = {'children': cr, 'width': self.width, 'height': self.height}
         self._template.format(**data)
     
-    def circle(self, **kwargs)
+    def circle(self, **kwargs):
         c = Circle(parent=self, **kwargs)
         self.children.append(c)
         return c
