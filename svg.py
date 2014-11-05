@@ -24,7 +24,7 @@ class SVG(Element):
             cr.append(c._render_template())
         cr = u'\n'.join(cr)
         data = {'children': cr, 'width': self.width, 'height': self.height}
-        self._template.format(**data)
+        return self._template.format(**data)
     
     def circle(self, **kwargs):
         c = Circle(parent=self, **kwargs)
