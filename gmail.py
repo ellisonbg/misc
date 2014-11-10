@@ -67,7 +67,7 @@ def send_gmail(username=None, password=None, subject='', body='', to=None,
         msg.attach(att)
     
     if debug:
-        print msg.as_string()
+        print(msg.as_string())
     else:
         server = smtplib.SMTP("smtp.gmail.com", 587) #or port 465 doesn't seem to work!
         server.ehlo()
