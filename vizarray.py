@@ -12,7 +12,7 @@ To disable this::
 
 To set the colormap (to any valid matplotlib colormap name)::
 
-    vizarray.set_cmap('jet')
+    vizarray.set_cmap('hot')
 
 To set the block_size in px (default is 30px)::
 
@@ -30,7 +30,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 
-_cmap = 'jet'
+_cmap = 'Blues'
 _scale = True
 _vmin = None
 _vmax = None
